@@ -1,6 +1,7 @@
 package abc.xhb.zuulwar;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -17,7 +18,7 @@ import java.util.Map;
  */
 @Component
 @ConfigurationProperties(prefix = "person")
-//@PropertySource(value = "classpath:config/person.properties")//指向对应的配置文件
+@PropertySource(value = "classpath:person.yml", factory = ResourceFactory.class)  //指向对应的配置文件
 public class Person {
     private String lastName;
     private Integer age;

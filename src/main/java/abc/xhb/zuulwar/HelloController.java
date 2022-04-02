@@ -1,5 +1,6 @@
 package abc.xhb.zuulwar;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,9 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
+@AllArgsConstructor
 public class HelloController {
-    @Autowired
-    private Person person;
+    private final Person person;
 
     @ResponseBody
     @RequestMapping("/hello")
