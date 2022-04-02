@@ -63,6 +63,11 @@
             <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
             <version>${spring-cloud-zuul-version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
