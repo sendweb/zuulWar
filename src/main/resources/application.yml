@@ -1,0 +1,25 @@
+person:
+  lastName: 张三疯
+  age: 18
+  boss: false
+  birth: 1990/12/12
+  maps: { k1: v1,k2: 12 }
+  lists:
+    ‐ lisi
+    ‐ zhaoliu
+  dog:
+    name: 迪迪
+    age: 5
+
+eureka:
+  client:
+    # 是否向eureka注册自身服务
+    register-with-eureka: false
+    #是否检索服务
+    fetch-registry: false
+
+zuul:
+  routes:
+    test202:
+      path: /baidu/**
+      url: https://www.baidu.com
