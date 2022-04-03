@@ -1,7 +1,9 @@
 package abc.xhb.zuulwar;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,7 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-@AllArgsConstructor
+//@AllArgsConstructor
+@ConditionalOnProperty(value = "Bean.Controller", havingValue = "true")
+@RequiredArgsConstructor
 public class HelloController {
     private final Person person;
 
