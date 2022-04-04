@@ -31,4 +31,8 @@ public class ResponseZuulFilter extends ZuulFilter {
         return 20;
     }
 
+//    @Bean
+//    public ResponseZuulFilter getResponseZuulFilter() {
+//        return new ResponseZuulFilter();
+//    }
 }

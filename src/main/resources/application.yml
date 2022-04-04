@@ -1,9 +1,45 @@
+#切换配置
+spring:
+  profiles:
+    active: dev
+
+---
+#开发环境
+server:
+  port: 8080
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+---
+#生产环境
+server:
+  port: 8082
+
+spring:
+  config:
+    activate:
+      on-profile: prd
+---
+#测试环境
+server:
+  port: 8083
+
+spring:
+  config:
+    activate:
+      on-profile: tst
+
+---
 eureka:
   client:
     # 是否向eureka注册自身服务
     register-with-eureka: false
     #是否检索服务
     fetch-registry: false
+
 
 zuul:
   host:

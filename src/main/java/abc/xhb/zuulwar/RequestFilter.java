@@ -46,4 +46,9 @@ public class RequestFilter extends ZuulFilter {
     public int filterOrder() {
         return 0;
     }
+
+//    @Bean
+//    public RequestFilter getRequestFilter() {
+//        return new RequestFilter();
+//    }
 }

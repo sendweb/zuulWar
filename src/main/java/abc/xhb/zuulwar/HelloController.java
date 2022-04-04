@@ -2,6 +2,8 @@ package abc.xhb.zuulwar;
 
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Controller;
@@ -15,14 +17,20 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 //@AllArgsConstructor
-@ConditionalOnProperty(value = "Bean.Controller", havingValue = "true")
+
 @RequiredArgsConstructor
 public class HelloController {
+    Logger logger = LoggerFactory.getLogger(getClass());
     private final Person person;
 
     @ResponseBody
     @RequestMapping("/hello")
     public Person hello() {
+        logger.trace("trace 级别日志");
+        logger.debug("debug 级别日志");
+        logger.info("info 级别日志");
+        logger.warn("warn 级别日志");
+        logger.error("error 级别日志");
         return person;
     }
 
