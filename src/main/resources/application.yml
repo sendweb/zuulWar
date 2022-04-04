@@ -2,6 +2,45 @@
 spring:
   profiles:
     active: dev
+eureka:
+  client:
+    # 是否向eureka注册自身服务
+    register-with-eureka: false
+    #是否检索服务
+    fetch-registry: false
+zuul:
+  host:
+    socket-timeout-millis: 30000
+    connect-timeout-millis: 20000
+  routes:
+    test202:
+      path: /baidu/**
+      url: https://www.baidu.com
+    testpos:
+      path: /pp/**
+      url: http://10.29.32.90:60000
+
+# 应用监控
+management:
+  server:
+    #将port配置为-1，将默认关闭所有断点。
+    #port: -1
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        #include: [info, health, beans]
+  endpoint:
+    shutdown:
+      enabled: true
+
+
+info:
+  app:
+    name: "@project.name@"
+    description: "@project.description@"
+    version: "@project.version@"
+
 
 ---
 #开发环境
@@ -32,23 +71,6 @@ spring:
     activate:
       on-profile: tst
 
----
-eureka:
-  client:
-    # 是否向eureka注册自身服务
-    register-with-eureka: false
-    #是否检索服务
-    fetch-registry: false
 
 
-zuul:
-  host:
-    socket-timeout-millis: 30000
-    connect-timeout-millis: 20000
-  routes:
-    test202:
-      path: /baidu/**
-      url: https://www.baidu.com
-    testpos:
-      path: /pp/**
-      url: http://10.29.32.90:60000
+

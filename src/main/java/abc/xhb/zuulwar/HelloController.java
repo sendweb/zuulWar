@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 @Controller
 //@AllArgsConstructor
@@ -24,7 +25,7 @@ public class HelloController {
     private final Person person;
 
     @ResponseBody
-    @RequestMapping("/hello")
+    @RequestMapping("/hellolog")
     public Person hello() {
         logger.trace("trace 级别日志");
         logger.debug("debug 级别日志");
@@ -32,6 +33,14 @@ public class HelloController {
         logger.warn("warn 级别日志");
         logger.error("error 级别日志");
         return person;
+    }
+
+    //@ResponseBody  //加载了thymeleaf后，这个表示返回是否对象
+    @RequestMapping("/hello")
+    public String hello(Map<String, Object> map) {
+        //通过 map 向前台页面传递数据
+        map.put("name", "编程帮（www.biancheng.net）");
+        return "hello";
     }
 
     @ResponseBody
