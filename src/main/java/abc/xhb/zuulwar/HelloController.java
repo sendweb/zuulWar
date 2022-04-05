@@ -35,7 +35,7 @@ public class HelloController {
         return person;
     }
 
-    //@ResponseBody  //加载了thymeleaf后，这个表示返回是否对象
+    //@ResponseBody  //加载了thymeleaf后，这个表示返回是对象
     @RequestMapping("/hello")
     public String hello(Map<String, Object> map) {
         //通过 map 向前台页面传递数据

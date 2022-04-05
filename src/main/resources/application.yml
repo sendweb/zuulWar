@@ -19,6 +19,8 @@ zuul:
     testpos:
       path: /pp/**
       url: http://10.29.32.90:60000
+logging:
+  config: classpath:logback-spring-full.xml
 
 # 应用监控
 management:
